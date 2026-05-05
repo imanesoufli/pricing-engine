@@ -17,4 +17,17 @@ public class PriceCalculatorTest {
 
         assertTrue(result > 0);
     }
-}
+    @Test
+    void testInvalidCode() {
+
+        Order order = new Order(
+                new double[]{100},
+                new int[]{1}
+        );
+
+        PricingEngine engine = new PricingEngine();
+
+        double result = engine.calculate(order, "REGULAR", "WRONG");
+
+        assertTrue(result > 0);
+    }}
